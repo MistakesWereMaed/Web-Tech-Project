@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Quiz! - Question 1</title> <!-- this will update as we cycle through the questions -->
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+    <header>
+        <h1>CS Quiz!</h1>
+        <h2>Question 1</h2> <!-- this will update as we cycle through the questions -->
+    </header>
+    <main>
+        <section>
+            <h3>Which of the following is not a programming language?</h3> <!-- placeholder question; update with connection to the back-end -->
+            <br>
+            <form onsubmit="return checkAnswer();"> <!-- this will take us to the next question -->
+                <input type="radio" name="answer" value="a" id="a">
+                <label for="a">A. Python</label><br>
+        
+                <input type="radio" name="answer" value="b" id="b">
+                <label for="b">B. Java</label><br>
+        
+                <input type="radio" name="answer" value="c" id="c">
+                <label for="c">C. HTML</label><br>
+        
+                <input type="radio" name="answer" value="d" id="d">
+                <label for="d">D. C++</label><br>
+                <br>
+        
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <nav>
+        <a href="index.html" onclick="return confirmExit()">Back to Home</a>
+    </nav>
+
+    <div id="correctModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Correct! ✅</h2>
+            </div>
+
+            <div class="modal-body">
+                <p>Well done! You got the answer right.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button onclick="closeModal('correctModal')">Continue</button>
+                <!-- Placeholder for when we connect the database; remove the above onclick function when
+                     connection to the back-end is established -->
+                <!-- <button onclick="goToNextQuestion()">Continue</button> -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="incorrectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Oops! ❌</h2>
+            </div>
+
+            <div class="modal-body">
+                <p>That's not the correct answer. Try again!</p>
+            </div>
+
+            <div class="modal-footer">
+                <button onclick="closeModal('incorrectModal')">Continue</button>
+                <!-- Placeholder for when we connect the database; remove the above onclick function when
+                     connection to the back-end is established -->
+                <!-- <button onclick="goToNextQuestion()">Continue</button> -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="exitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Whoa! Hey there, Hoser!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to quit?</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('exitModal')">Cancel</button>
+                <button onclick="goHome()">Yes</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function confirmExit() {
+            document.getElementById('exitModal').style.display = 'block';
+            return false;
+        }
+    
+        function closeModal(modalId) {
+            document.getElementById('exitModal').style.display = 'none';
+        }
+        
+        function goHome() {
+            window.location.href = "index.html";
+        }
+    
+        function checkAnswer() {
+            // Get the selected answer
+            var answers = document.getElementsByName('answer');
+            var selectedAnswer;
+            for (var i = 0; i < answers.length; i++) {
+                if (answers[i].checked) {
+                    selectedAnswer = answers[i].value;
+                    break;
+                }
+            }
+    
+            // Check the answer and show the appropriate modal
+            if (selectedAnswer === 'c') { // Assume 'c' is the correct answer for now; we'll need to update this to check the database
+                document.getElementById('correctModal').style.display = 'block';
+            } else {
+                document.getElementById('incorrectModal').style.display = 'block';
+            }
+        
+            // Prevent the form from actually submitting
+            return false;
+        }
+    
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+    
+        function goToNextQuestion() {
+            window.location.href = "question2.html"; // We'll need to update this to go to the next question in the database
+        }
+    </script>
+</body>
+
+</html>
