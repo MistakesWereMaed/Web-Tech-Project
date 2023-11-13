@@ -82,10 +82,10 @@ if($result->num_rows  > 0) {
                 }
                 echo "<br>";
                 if($_POST["answers$count"]==$row['correctanswer']){
-                    echo "<p class='explain'>Correct</p><br>";
+                    echo "<p id='explain'>Correct</p><br>";
                 }
                 else{
-                    echo "<p class='explain'>Incorrect. The correct answer is: ".$row['correctanswer']."</p><br>";
+                    echo "<p id='explain'>Incorrect. The correct answer is: ".$row['correctanswer']."</p><br>";
                 }
                 echo "<input class='menu' type='submit' value='Next'>";
                 $_SESSION["questionnumber"] += 1;
