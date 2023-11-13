@@ -54,48 +54,48 @@ if($result->num_rows  > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         if($count==$_SESSION["questionnumber"]){
             echo "<h3>Question ".$count."</h3>";
-            echo $row['question']."<br>";
+            echo "<p id='ques'>".$row['question']."</p><br>";
             if(isset($_POST["answers$count"])){
                 if($_POST["answers$count"]==$row['answer1']){
-                    echo "<input type='radio' name='answers$count' value='$row[answer1]' checked> a. ". $row['answer1']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer1]' checked> a. ". $row['answer1']."</p><br>";
                 }
                 else{
-                    echo "<input type='radio' name='answers$count' value='$row[answer1]'> a. ". $row['answer1']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer1]'> a. ". $row['answer1']."</p><br>";
                 }
                 if($_POST["answers$count"]==$row['answer2']){
-                    echo "<input type='radio' name='answers$count' value='$row[answer2]' checked> b. ". $row['answer2']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer2]' checked> b. ". $row['answer2']."</p><br>";
                 }
                 else{
-                    echo "<input type='radio' name='answers$count' value='$row[answer2]'> b. ". $row['answer2']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer2]'> b. ". $row['answer2']."</p><br>";
                 }
                 if($_POST["answers$count"]==$row['answer3']){
-                    echo "<input type='radio' name='answers$count' value='$row[answer3]' checked> c. ". $row['answer3']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer3]' checked> c. ". $row['answer3']."</p><br>";
                 }
                 else{
-                    echo "<input type='radio' name='answers$count' value='$row[answer3]'> c. ". $row['answer3']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer3]'> c. ". $row['answer3']."<br>";
                 }
                 if($_POST["answers$count"]==$row['answer4']){
-                    echo "<input type='radio' name='answers$count' value='$row[answer4]' checked> d. ". $row['answer4']."<br>";
+                    echo "<p class='ans><input type='radio' name='answers$count' value='$row[answer4]' checked> d. ". $row['answer4']."</p><br>";
                 }
                 else{
-                    echo "<input type='radio' name='answers$count' value='$row[answer4]'> d. ". $row['answer4']."<br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer4]'> d. ". $row['answer4']."</p><br>";
                 }
                 echo "<br>";
                 if($_POST["answers$count"]==$row['correctanswer']){
-                    echo "Correct<br>";
+                    echo "<p class='explain'>Correct</p><br>";
                 }
                 else{
-                    echo "Incorrect. The correct answer is: ".$row['correctanswer']."<br>";
+                    echo "<p class='explain'>Incorrect. The correct answer is: ".$row['correctanswer']."</p><br>";
                 }
-                echo "<input type='submit' value='Next'>";
+                echo "<input class='menu' type='submit' value='Next'>";
                 $_SESSION["questionnumber"] += 1;
             }
             else{
-                echo "<input type='radio' name='answers$count' value='$row[answer1]'> a. ". $row['answer1']."<br>";
-                echo "<input type='radio' name='answers$count' value='$row[answer2]'> b. ". $row['answer2']."<br>";
-                echo "<input type='radio' name='answers$count' value='$row[answer3]'> c. ". $row['answer3']."<br>";
-                echo "<input type='radio' name='answers$count' value='$row[answer4]'> d. ". $row['answer4']."<br><br>";
-                echo "<input type='submit' value='Check' onclick='validate()'>";
+                echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer1]'> a. ". $row['answer1']."</p><br>";
+                echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer2]'> b. ". $row['answer2']."</p><br>";
+                echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer3]'> c. ". $row['answer3']."</p><br>";
+                echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer4]'> d. ". $row['answer4']."</p><br><br>";
+                echo "<input class='menu' type='submit' value='Check' onclick='validate()'>";
             }
             break;
         }
@@ -104,7 +104,7 @@ if($result->num_rows  > 0) {
     if($_SESSION["questionnumber"]>$result->num_rows){
         $_SESSION["questionnumber"] = 1;
     }
-    echo "<input type='submit' value='Exit Quiz' name='exit'>";
+    echo "<input class='menu' type='submit' value='Exit Quiz' name='exit'>";
     echo "</form>";
 } else {
     echo '<br>no records returned';
