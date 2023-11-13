@@ -75,7 +75,7 @@ if($result->num_rows  > 0) {
                     echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer3]'> c. ". $row['answer3']."<br>";
                 }
                 if($_POST["answers$count"]==$row['answer4']){
-                    echo "<p class='ans><input type='radio' name='answers$count' value='$row[answer4]' checked> d. ". $row['answer4']."</p><br>";
+                    echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer4]' checked> d. ". $row['answer4']."</p><br>";
                 }
                 else{
                     echo "<p class='ans'><input type='radio' name='answers$count' value='$row[answer4]'> d. ". $row['answer4']."</p><br>";
