@@ -8,11 +8,11 @@ if($username=='admin' && $password=='admin'){
     $_SESSION['username']='admin';
     $_SESSION['password']='admin';
     $_SESSION['valid']=true;
-    header('Location: instructions.php');
+    header('Location: index.php');
 }
 else if($username==$_SESSION['username'] && $password==$_SESSION['password']){
     $_SESSION['valid']=true;
-    header('Location: instructions.php');
+    header('Location: index.php');
 }
 else{
     
@@ -33,16 +33,9 @@ else{
 </head>
 
 <body>
-    <header>
-        <h1>CS Quiz!</h1>
-        <h2>Group 8</h2>
-    </header>
-    <main>
-        <section>
-            <h2>Welcome!</h2>
-            <h1>Log In</h1>
+<h1>Log In</h1>
     <div >
-        <form method='post' action="index.php">
+        <form method='post' action="LogIn.php">
           <input class='username' type='text' name='username' placeholder='Username' required>
           <br>
           <input class='password' type='password' name='psw' placeholder='Password' required>
@@ -67,10 +60,7 @@ else{
       alert('This username or password is incorrect');
     }
   }
-      </script>
-        </section>
-    </main>
-    
+      </script>       
 </body>
 
 </html>
