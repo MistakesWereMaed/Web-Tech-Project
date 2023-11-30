@@ -20,7 +20,15 @@
            <a href="LogOut.php" class="start-quiz-btn">Log Out</a>
         </section>
     </main>
-    
+
+    <!--input type="button" name="clearQuiz">Clear Quiz Scores</input>
+    // ?php
+        //Clear Quiz Scores button does not work yet
+        //$clear = "DELETE * FROM scores;";
+        //$delete = $db_conn->query($clear);
+        //echo "<p>All quiz scores have been cleared.</p>"
+    ?>
+    -->
 </body>
 
 </html>

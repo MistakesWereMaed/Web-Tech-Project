@@ -33,6 +33,22 @@
         <a href="quiz.php" class="start-quiz-btn">Start Quiz</a>
         <a href="LogOut.php" class="start-quiz-btn">Log Out</a>
     </nav>
+
+    <section>
+        <h2>High Scores: </h2>
+        <ul id="highScores">
+            <?php
+                $placement = 1;
+                $scoreQuery = "SELECT * FROM scores ORDER BY score DESC;";
+                $list = $db_conn->query($query);
+                while($row = mysqli_fetch_assoc($list)){
+                    echo "<li>$placement | $row['score']/20 | $row['username']</li>"
+                    $placement++;
+                }
+            ?>
+        </ul>
+    </section>
+    
 </body>
 
 </html>

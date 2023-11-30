@@ -91,6 +91,11 @@ if($result->num_rows  > 0) {
                 $_SESSION["questionnumber"] += 1;
                 if($_SESSION["questionnumber"]>$result->num_rows){
                     echo "<p id='score'>Final Score: ".$_SESSION["score"]."/".$result->num_rows."</p>";
+//added code for high scores
+                    $scoreQuery = "INSERT INTO scores
+                    VALUES ($_SESSION['username'], $_SESSION['score']);";
+                    $inputScore = $db_conn->query($scoreQuery);
+                    
                     
                 }
                 echo "<input class='menu' type='submit' value='Next'>";
@@ -110,6 +115,7 @@ if($result->num_rows  > 0) {
     if($_SESSION["questionnumber"]>$result->num_rows){
         $_SESSION["questionnumber"] = 1;
         $_SESSION["score"] = 0;
+        $scoreInput = 
     }
     echo "<input class='menu' type='submit' value='Exit Quiz' name='exit'>";
     echo "</form>";
