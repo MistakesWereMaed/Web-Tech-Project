@@ -34,6 +34,13 @@ CREATE TABLE `quiz` (
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+DROP TABLE IF EXISTS 'scores';
+
+CREATE TABLE 'scores' (
+  'username' varchar(20) NOT NULL,
+  'score' int NOT NULL
+)DEFAULT CHARSET=latin1;
+
 --
 -- Dumping data for table `quiz`
 --
