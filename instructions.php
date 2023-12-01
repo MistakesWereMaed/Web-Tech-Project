@@ -11,6 +11,8 @@
     session_start();
     $_SESSION["questionnumber"] = 1;
     $_SESSION["score"] = 0;
+
+    
 ?>
 <body>
     <header>
@@ -38,6 +40,20 @@
         <h2>High Scores: </h2>
         <ul id="highScores">
             <?php
+
+                $db_host="localhost";        //Change this
+                $db_user="tudy";        //Change this
+                $db_pass="password";        //Change this
+                $db_name="game";     //Do not change
+
+                $db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+                
+                if (mysqli_connect_errno())
+                {
+                    echo 'Connection to database failed:'.mysqli_connect_error();
+                    exit();
+                }
+
                 $placement = 1;
                 $scoreQuery = "SELECT * FROM scores ORDER BY score DESC;";
                 $list = $db_conn->query($query);
@@ -45,6 +61,8 @@
                     echo "<li>$placement | $row['score']/20 | $row['username']</li>"
                     $placement++;
                 }
+
+                $db_conn->close();
             ?>
         </ul>
     </section>
